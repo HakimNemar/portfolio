@@ -1,0 +1,301 @@
+// .realisations { // OLD
+//     grid-row: 2;
+//     grid-column: 1/ 23;
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: center;
+//     grid-gap: 26px;
+//     margin: 30px auto;
+//     max-width: 1475px;
+
+//     li {
+//         @include media("<laptop") {
+//             width: 45%;
+//         }
+
+//         @include media("<tablet") {
+//             width: 100%;
+//         }
+
+//         figure {
+//             width: 400px;
+//             overflow: hidden;
+//             position: relative;
+//             display: grid;
+//             height: 400px;
+
+//             @include media("<laptop") {
+//                 width: 100%;
+//                 height: 370px;
+//             }
+
+//             @include media("<tablet") {
+//                 width: 320px;
+//                 margin: auto;
+//             }
+
+//             &:hover {
+//                 img {
+//                     transform: scale(1.6) translate(35px, 23px);
+//                 }
+
+//                 figcaption {
+//                     background-color: $primary;
+
+//                     p {
+//                         color: #fff !important;
+
+//                         &:nth-child(1) {
+//                             &::after {
+//                                 border-color: transparent transparent $primary transparent;
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+
+//             img {
+//                 width: 100%;
+//                 height: auto;
+//                 position: absolute;
+//                 transition: all 1.5s;
+//                 margin: 0;
+//             }
+
+//             figcaption {
+//                 height: 150px;
+//                 background-color: #ebebec;
+//                 position: relative;
+//                 transition: all 0.3s;
+//                 align-self: end;
+
+//                 @include media("<=tablet") {
+//                     padding: 5px;
+//                 }
+
+//                 p {
+//                     padding: 20px;
+//                     transition: all 0.3s;
+
+//                     @include media("<=tablet") {
+//                         padding: 15px;
+//                     }
+
+//                     &:nth-child(1) {
+//                         font-weight: 700;
+//                         text-transform: uppercase;
+//                         position: relative;
+//                         font-size: 20px;
+
+//                         @include media("<laptop") {
+//                             font-size: 18px;
+//                             letter-spacing: 0.1em;
+//                         }
+
+//                         &::before {
+//                             content: "";
+//                             position: absolute;
+//                             height: 5px;
+//                             width: 30px;
+//                             background-color: $secondary;
+//                             bottom: -2px;
+
+//                             @include media("<=tablet") {
+//                                 height: 2px;
+//                             }
+//                         }
+
+//                         &::after {
+//                             content: "";
+//                             position: absolute;
+//                             left: 21px;
+//                             top: -14px;
+//                             width: 0;
+//                             height: 0;
+//                             border-style: solid;
+//                             border-width: 0 7px 16px 7px;
+//                             border-color: transparent transparent #ebebec transparent;
+//                             transition: all 0.3s;
+
+//                             @include media("<laptop") {
+//                                 top: -20px;
+//                             }
+//                         }
+//                     }
+
+//                     &:nth-child(2) {
+//                         font-size: 18px;
+//                         color: $grey2;
+
+//                         @include media("<laptop") {
+//                             font-size: 14px;
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+.realisations {
+    grid-row: 2;
+    grid-column: 1/ 23;
+
+    li {
+        display: flex;
+        height: 90vh;
+        padding-top: 100px;
+
+        @include media("<laptop") {
+            flex-direction: column-reverse;
+            padding: 0;
+            height: auto;
+            margin-bottom: 50px;
+        }
+
+        .ProjectThumbnail_text {
+            width: 30%;
+
+            @include media("<laptop") {
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            h1 {
+                color: $secondary;
+                font-size: 40px;
+
+                @include media("<laptop") {
+                    font-size: 26px;
+                }
+            }
+
+            h3 {
+                color: $grey2;
+                margin-top: 5px;
+            }
+
+            p {
+                margin: 50px 0;
+                font-size: 20px;
+                line-height: 1.5;
+
+                @include media("<laptop") {
+                    font-size: 16px;
+                    margin-top: 25px;
+                }
+            }
+
+            a {
+                margin: 25px 0;
+                display: block;
+                position: relative;
+                padding: 10px;
+                width: max-content;
+                overflow: hidden;
+                border-left: 1px solid $primary;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: -25px;
+                    top: -30px;
+                    width: 30px;
+                    width: 30px;
+                    height: 300%;
+                    background-color: $primary;
+                    transition: all 0.5s;
+                    transform: rotate(35deg);
+                    mix-blend-mode: exclusion;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    height: 100%;
+                    border-top: 1px solid $primary;
+                    border-bottom: 1px solid $primary;
+                    left: 0;
+                    top: 0;
+                    width: 0;
+                    transition: all 0.5s;
+                }
+
+                &:hover {
+                    &::before {
+                        left: 92%;
+                    }
+
+                    &::after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .ProjectThumbnail_figure {
+            width: 70%;
+            height: max-content;
+            margin-left: 50px;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 80px;
+                height: 80px;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                background-color: rgba($primary, 0.7);
+                border-radius: 50%;
+                transition: all 0.3s;
+                box-shadow: 0 0 20px #fff;
+                z-index: -1;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                top: 0;
+                right: 0;
+                left: 6px;
+                margin: auto;
+                width: 0;
+                height: 0;
+                border: 14px solid transparent;
+                border-right: none;
+                border-left: 20px solid #fff;
+                transition: all 0.3s;
+                z-index: -1;
+            }
+
+            &:hover {
+                &::before {
+                    width: 95px;
+                    height: 95px;
+                    background-color: rgba(#000, 0.7);
+                }
+
+                &::after {
+                    border-left: 20px solid $tertiaire;
+                }
+            }
+
+            @include media("<laptop") {
+                width: 100%;
+                margin: 0;
+            }
+
+            video {
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                position: relative;
+                z-index: -2;
+            }
+        }
+    }
+}

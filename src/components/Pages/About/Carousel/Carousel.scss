@@ -1,0 +1,233 @@
+.timeLine {
+    grid-row: 3;
+    grid-column: 1 / 23;
+    position: relative;
+
+    .carousel {
+        margin: 50px 20px;
+        overflow: hidden;
+
+        @include media("<tablet") {
+            margin: 0;
+        }
+
+        .overview {
+            display: flex;
+            position: relative;
+            transition: transform 0.5s;
+            margin-bottom: 20px;
+
+            li {
+                position: relative;
+                flex: 0 0 100%;
+                display: flex;
+                padding: 0 50px;
+                justify-content: center;
+
+                @include media("<tablet") {
+                    padding: 0;
+                }
+
+                .divLogo {
+                    width: 40%;
+                    text-align: center;
+                    // align-self: center;
+
+                    @include media("<laptop") {
+                        display: none;
+                    }
+
+                    .logo {
+                        max-width: 55%;
+                        height: auto;
+                    }
+                }
+
+                .content {
+                    width: 60%;
+                    margin: 0 30px;
+
+                    @include media("<laptop") {
+                        width: 100%;
+                    }
+
+                    @include media("<tablet") {
+                        margin-bottom: 20px;
+                    }
+
+                    h2 {
+                        font-size: 34px;
+                        font-weight: 600;
+
+                        @include media("<tablet") {
+                            font-size: 18px;
+                        }
+                    }
+
+                    .date {
+                        margin: 20px 0 5px;
+                        color: $red;
+
+                        .contrat {
+                            text-transform: uppercase;
+                        }
+                    }
+
+                    .description {
+                        margin: 20px 0;
+                        line-height: 20px;
+                        text-align: justify;
+
+                        @include media("<tablet") {
+                            display: none;
+                        }
+                    }
+
+                    .logoMobile {
+                        max-width: 200px;
+                        height: auto;
+                        float: left;
+                        margin-right: 25px;
+
+                        @include media(">laptop") {
+                            display: none;
+                        }
+
+                        @include media("<tablet") {
+                            max-width: 100px;
+                            max-height: 85px;
+                            float: right;
+                        }
+                    }
+                }
+            }
+        }
+
+        .slide {
+            display: flex;
+            position: relative;
+            transition: transform 0.5s;
+
+            .active {
+                color: $secondary;
+
+                &::after {
+                    background-color: $secondary;
+                }
+            }
+
+            li {
+                position: relative;
+                flex: 0 0 (100% / 4);
+                text-align: center;
+                padding: 0 30px;
+                color: $grey2;
+                height: 130px;
+
+                @include media("<laptop") {
+                    flex: 0 0 (100% / 3);
+                }
+
+                @include media("<tablet") {
+                    flex: 0 0 (100% / 2);
+                    padding: 0;
+                    height: 150px;
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    height: 1px;
+                    width: 100%;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    margin: auto;
+                    background-color: $grey2;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    background-color: $grey2;
+                }
+
+                > div {
+                    height: 100%;
+                    padding: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    h2 {
+                        font-size: 18px;
+                    }
+
+                    h3 {
+                        font-size: 22px;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+
+    .prev,
+    .next {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+
+        @include media("<tablet") {
+            width: 20px;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 12px;
+            height: 12px;
+            margin: auto;
+            border: 2px solid $grey2;
+            transition: 0.2s all;
+            transform: rotate(45deg);
+        }
+
+        &:hover {
+            &::before {
+                transform: rotate(45deg) scale(1.2);
+            }
+        }
+    }
+
+    .prev {
+        &::before {
+            border-right: none;
+            border-top: none;
+        }
+    }
+
+    .next {
+        right: 0;
+
+        &::before {
+            border-left: none;
+            border-bottom: none;
+        }
+    }
+}

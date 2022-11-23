@@ -1,0 +1,125 @@
+.contact {
+    // height: 100vh;
+    position: relative;
+    transition: transform 0.5s ease-out;
+    padding-top: 200px;
+    padding-bottom: 90px;
+    @include gridLayout;
+
+    h1 {
+        font-family: "Playfair Display SC";
+        letter-spacing: 4.29px;
+        line-height: 127px;
+        text-transform: uppercase;
+        font-size: 143px;
+        max-width: min-content;
+        position: absolute;
+        height: fit-content;
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+
+        @include media("<=tablet") {
+            font-size: 50px;
+        }
+    }
+
+    form {
+        grid-row: 2;
+        grid-column: 6 / 18;
+
+        @include media("<laptop") {
+            grid-column: 3 / 21;
+        }
+
+        @include media("<mobileL") {
+            grid-column: 1 / 23;
+        }
+
+        .input-field {
+            margin-bottom: 20px;
+            display: flex;
+            transition: all 0.3s;
+
+            .required {
+                display: flex;
+                align-items: center;
+                padding: 6px 12px;
+                font-size: 14px;
+                font-weight: normal;
+                line-height: 1;
+                color: #fff;
+                text-align: center;
+                background-color: $primary;
+            }
+
+            input,
+            textarea {
+                background-color: #fff;
+                height: 40px;
+                border: 1px solid #e6e6e6;
+                width: 100%;
+                padding: 0 15px;
+            }
+
+            textarea {
+                height: 150px;
+                padding: 10px 15px;
+            }
+        }
+
+        .alerte {
+            color: #b94a48;
+            background-color: #f2dede;
+            border-color: #ebccd1;
+            padding: 10px;
+            margin-bottom: 20px;
+            margin-top: -10px;
+            transition: all 0.3s;
+        }
+
+        label {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+        }
+
+        .formSend {
+            display: flex;
+            justify-content: space-between;
+
+            .send {
+                background-color: $secondary;
+                color: #fff;
+                padding: 13px 20px;
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+                transition: all 0.3s;
+
+                &:hover {
+                    background-color: $primary;
+                }
+            }
+
+            #validate {
+                font-size: 32px;
+                color: green;
+                padding: 5px 30px;
+                background-color: #cef0ce;
+                animation-duration: 1s;
+                opacity: 0;
+                transition: all 1s;
+            }
+
+            .fadeInUpValidate {
+                opacity: 1 !important;
+                animation-name: fadeInUpValidate;
+            }
+        }
+    }
+}

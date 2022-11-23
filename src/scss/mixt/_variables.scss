@@ -1,0 +1,44 @@
+// Colors
+$primary: #383c3c;
+$secondary: #b61313;
+// $secondary: #e74c3c;
+$tertiaire: #f5f5f5;
+
+$beige: #f7f5f4;
+$beige2: #ceccca;
+
+$grey: #383c3c;
+$grey2: #8f8f8f;
+$black: #37393c;
+$black2: #3c3c3c;
+
+$bleu: #008fd6;
+$bleu2: #2c4b5d;
+$bleu3: #5391af;
+
+$vert: #86dcb0;
+$yellow: #d7c57d;
+$red: #d52b1e;
+$orange: #ff7100;
+
+// Sizes
+$maxWidth: 1265px;
+$gridMargin: 105px;
+$gridGap: 1.2%;
+$padding: 20px;
+$pointSize: 4px;
+$circleSize: 30px;
+
+// Breakpoints
+$breakpoints: (
+    mobileS: 320px,
+    mobileM: 375px,
+    mobileL: 425px,
+    mobileXL: 508px,
+    tablet: 768px,
+    laptop: 1024px,
+    laptopM: 1195px,
+    laptopL: 1350px,
+    laptopXL: 1440px,
+    desktop: 1600px,
+);

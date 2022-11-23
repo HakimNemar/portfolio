@@ -1,0 +1,49 @@
+.about {
+    position: relative;
+    transition: transform 0.5s ease-out;
+    // margin-bottom: -225px;
+    @include gridLayout;
+
+    @include media("<laptopM") {
+        // margin-bottom: -375px;
+    }
+
+    @include media("<laptop") {
+        overflow: visible;
+        margin-top: -90px;
+        // margin-bottom: -220px;
+    }
+
+    @include media("<tablet") {
+        margin-top: 0px;
+    }
+
+    @include media("<mobileXL") {
+        overflow: hidden;
+        // margin-top: -400px;
+        // margin-bottom: -405px;
+    }
+
+    @include media("<mobileL") {
+        // margin-bottom: -570px;
+        padding: 30px;
+    }
+
+    @import "./Timeline/Timeline.scss";
+    @import "./Carousel/Carousel.scss";
+
+    .aboutMe {
+        grid-row: 2;
+        grid-column: 1 / 23;
+        font-size: 18px;
+        line-height: 30px;
+        padding-top: 25px;
+        padding-bottom: 50px;
+        text-align: justify;
+
+        @include media("<laptop") {
+            font-size: 14px;
+            line-height: 24px;
+        }
+    }
+}

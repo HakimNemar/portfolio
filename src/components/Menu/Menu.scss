@@ -1,0 +1,62 @@
+.menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    height: 100vh;
+    background-color: #fff;
+    padding: 130px 100px 90px;
+    transform: translateX(540px);
+    transition: transform 1.5s;
+    box-shadow: -1px 0px 10px $beige2;
+
+    @include media("<mobileXL") {
+        width: 100%;
+    }
+
+    .navMobile {
+        height: 100%;
+
+        li {
+            font-family: "Playfair Display SC";
+            text-transform: uppercase;
+            padding: 25px 0;
+            font-size: 25px;
+            letter-spacing: 1.29px;
+            position: relative;
+
+            a {
+                display: block;
+                width: 100%;
+
+                &::before {
+                    content: "";
+                    width: 0;
+                    height: 1px;
+                    background-color: $grey;
+                    position: absolute;
+                    bottom: 15px;
+                    left: 0;
+                    transition: width 0.3s;
+                }
+
+                &:hover {
+                    &::before {
+                        width: 30px;
+                    }
+                }
+            }
+        }
+    }
+
+    .social {
+        display: flex;
+        justify-content: center;
+
+        .iconLink {
+            width: 28px;
+            height: 28px;
+            margin: 5px 10px;
+        }
+    }
+}

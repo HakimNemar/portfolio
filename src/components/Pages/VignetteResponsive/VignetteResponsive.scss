@@ -1,0 +1,47 @@
+.vignetteResponsive {
+    position: relative;
+    transition: transform 0.5s ease-out;
+    background-color: #fff;
+    padding: 100px 0 0;
+
+    h1 {
+        font-family: "Public_Sans-Thin_Regular";
+        line-height: 52px;
+        font-size: 42px;
+        margin-bottom: 30px;
+        text-align: center;
+        font-weight: bold;
+
+        @include media("<mobileL") {
+            font-size: 22px;
+            line-height: 30px;
+        }
+    }
+
+    h2 {
+        font-family: "Public_Sans-Thin_Regular";
+        font-size: 22px;
+        text-align: center;
+
+        @include media("<mobileL") {
+            font-size: 18px;
+            line-height: 22px;
+        }
+    }
+
+    div {
+        text-align: center;
+
+        img {
+            margin: 0 auto -40px;
+
+            @include media("<=tablet") {
+                height: 300px;
+            }
+
+            @include media("<mobileXL") {
+                height: 170px;
+            }
+        }
+    }
+}

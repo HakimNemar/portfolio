@@ -1,0 +1,126 @@
+@import "./mixt/mixins";
+@import "./mixt/keyframes";
+@import "./mixt/variables";
+@import "../../node_modules/destyle.css/destyle";
+@import "../../node_modules/include-media/dist/include-media";
+
+@include fontD("Playfair Display SC", "PlayfairDisplay-VariableFont_wght.ttf");
+@include fontP("Public_Sans-Thin_Regular", "PublicSans-Regular.ttf");
+
+html {
+	color: $black;
+	font-size: 14px;
+	line-height: 1;
+	scroll-behavior: smooth;
+	background-color: $tertiaire;
+
+	::-webkit-scrollbar {
+		width: 5px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: $primary;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: #000;
+	}
+
+	/* Works on Firefox */
+	scrollbar-width: thin;
+	scrollbar-color: $primary transparent;
+}
+
+body {
+	font-family: "Public_Sans-Thin_Regular";
+	cursor: none;
+
+	.titleGroup {
+		grid-row: 1;
+		grid-column: 1 / 23;
+		position: relative;
+		text-align: center;
+		align-self: center;
+		margin-bottom: 160px;
+
+		@include media("<laptop") {
+			margin-bottom: 140px;
+		}
+
+		@include media("<mobileXL") {
+			margin-bottom: 80px;
+		}
+
+		.title {
+			font-family: "Playfair Display SC";
+			letter-spacing: 0.4em;
+			text-transform: uppercase;
+			font-size: 143px;
+			// max-width: min-content;
+			height: min-content;
+			position: absolute;
+			margin: auto;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 20px;
+			color: #ebebec;
+			z-index: -1;
+			display: flex;
+			// overflow: hidden;
+
+			.text {
+				margin: auto;
+			}
+
+			@include media("<laptopM") {
+				font-size: 100px;
+				letter-spacing: 0.3em;
+			}
+
+			@include media("<laptop") {
+				font-size: 80px;
+			}
+		}
+
+		.title2 {
+			letter-spacing: 10px;
+			text-transform: uppercase;
+			font-size: 45px;
+
+			@include media("<laptopM") {
+				font-size: 30px;
+				letter-spacing: 0.2em;
+			}
+
+			@include media("<=tablet") {
+				font-size: 22px;
+				letter-spacing: 0.13em;
+			}
+		}
+	}
+}
+
+::selection {
+	background-color: $grey;
+	color: #fff;
+}
+
+@import "../components/Header/Header.scss";
+@import "../components/Footer/Footer.scss";
+
+@import "../components/Mouse/Mouse.scss";
+@import "../components/Menu/Menu.scss";
+@import "../components/Menu/BtnMenu/BtnMenu.scss";
+
+@import "../components/Home/Home.scss";
+@import "../components/Pages/Intro/Intro.scss";
+@import "../components/Pages/Competences/Competences.scss";
+@import "../components/Pages/Projects/Projects.scss";
+@import "../components/Pages/Contact/Contact.scss";
+@import "../components/Pages/About/About.scss";
+@import "../components/Pages/VignetteResponsive/VignetteResponsive.scss";

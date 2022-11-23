@@ -1,0 +1,196 @@
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px $beige2;
+    // mix-blend-mode: exclusion;
+
+    @include media("<laptop") {
+        background-color: transparent;
+        box-shadow: initial;
+        padding: 10px;
+    }
+
+    .head {
+        display: grid;
+        // grid-template-columns: 60px 1fr min-content;
+        grid-template-columns: 100px 1fr min-content;
+        // max-width: $maxWidth + $gridMargin * 2;
+        // margin-left: auto;
+        // margin-right: auto;
+        // padding-left: $gridMargin;
+        // padding-right: $gridMargin;
+
+        @include media("<laptop") {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        .logo {
+            z-index: 99;
+            grid-row: 1;
+            grid-column: 1;
+            padding: 10px;
+            text-align: center;
+            align-self: center;
+
+            @include media("<laptop") {
+                text-align: left;
+                padding: 0;
+            }
+
+            svg {
+                fill: $primary;
+                width: 50px;
+                height: auto;
+
+                @include media("<mobileL") {
+                    width: 35px;
+                    margin: auto 0;
+                }
+            }
+        }
+
+        .burger {
+            grid-row: 1;
+            grid-column: 23;
+        }
+
+        > .nav {
+            grid-row: 1;
+            grid-column: 2;
+            display: flex;
+            // justify-content: center;
+
+            @include media("<laptop") {
+                display: none;
+            }
+
+            li {
+                display: flex;
+                transition: all 0.3s;
+                width: (100% / 4);
+
+                a {
+                    position: relative;
+                    font-size: 16px;
+                    font-weight: 600;
+                    letter-spacing: 4px;
+                    text-transform: uppercase;
+                    text-align: center;
+                    padding: 38px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                    color: $beige;
+                    z-index: 0;
+                    width: 100%;
+                    height: 93px;
+                    overflow: hidden;
+
+                    @include media("<laptop") {
+                        font-size: 14px;
+                    }
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        left: 0;
+                        top: 0;
+                        background-color: $primary;
+                        opacity: 0.7;
+                        z-index: -1;
+                        transition: all 0.3s;
+                    }
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 0;
+                        background-color: $secondary;
+                        left: 0;
+                        right: 0;
+                        margin: auto;
+                        bottom: 0;
+                        transition: all 0.2s;
+                    }
+
+                    &:hover {
+                        // color: $secondary;
+
+                        // &::after {
+                        //     height: 4px;
+                        // }
+
+                        &::before {
+                            transform: translateY(100%);
+                        }
+                    }
+                }
+            }
+
+            .active {
+                a {
+                    &::before {
+                        transform: translateY(100%);
+                    }
+                }
+            }
+        }
+    }
+
+    .scrollTop {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        transform: translateY(100%);
+        transition: transform 0.5s;
+
+        @include media("<laptop") {
+            display: none;
+        }
+
+        div {
+            width: 32px;
+            height: 55px;
+            border: 10px solid $primary;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            margin: 20px;
+
+            span {
+                height: 3px;
+                width: 100%;
+                background-color: $primary;
+                transform: translateY(-3px);
+                animation: 0.2s linear infinite scrollTop;
+            }
+        }
+
+        @keyframes scrollTop {
+            0% {
+                transform: translateY(6px);
+            }
+            100% {
+                // transform: translateY(365%);
+                transform: translateY(-5px);
+            }
+        }
+    }
+
+    .burger,
+    .menu {
+        @include media(">laptop") {
+            display: none;
+        }
+    }
+}

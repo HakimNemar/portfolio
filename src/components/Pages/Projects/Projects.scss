@@ -1,0 +1,19 @@
+.projets {
+    position: relative;
+    transition: transform 0.5s ease-out;
+    padding: 200px 90px 90px 90px;
+    min-height: 100vh;
+    background-color: #fff;
+    @include gridLayout;
+    max-width: initial;
+
+    @include media("<laptop") {
+        padding-top: 130px;
+    }
+
+    @include media("<tablet") {
+        padding-bottom: 0px;
+    }
+
+    @import "./Realisations/Realisations.scss";
+}

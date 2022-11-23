@@ -1,0 +1,49 @@
+.point,
+.circle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 100;
+
+    @include media("<laptop") {
+        display: none;
+    }
+}
+
+.point {
+    left: $pointSize / -2;
+    top: $pointSize / -2;
+    width: $pointSize;
+    height: $pointSize;
+    border-radius: 50%;
+    background: $grey;
+
+    &.hover {
+        background-color: #fff;
+    }
+}
+
+.circle {
+    top: $circleSize / -2;
+    left: $circleSize / -2;
+    width: $circleSize;
+    height: $circleSize;
+    mix-blend-mode: exclusion;
+
+    &::before {
+        content: "";
+        display: block;
+        height: 100%;
+        background-color: $tertiaire;
+        border: 1px solid $grey;
+        border-radius: 50%;
+        transition-duration: 0.3s;
+        transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    &.hover {
+        &::before {
+            opacity: 0.3;
+            transform: scale(1.5);
+        }
+    }
+}

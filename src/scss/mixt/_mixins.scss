@@ -1,0 +1,42 @@
+@mixin gridLayout {
+	display: grid;
+	grid-template-columns: repeat(22, minmax(0px, 1fr));
+	gap: 0 $gridGap;
+	max-width: $maxWidth + $gridMargin * 2;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $gridMargin;
+	padding-right: $gridMargin;
+
+	@include media("<=tablet") {
+		padding-left: $padding;
+		padding-right: $padding;
+		overflow: hidden;
+	}
+}
+
+@mixin fontD($name, $url) {
+	@font-face {
+		font-family: $name;
+		src: url("../assets/fonts/Playfair_Display/" + $url);
+	}
+}
+
+@mixin fontP($name, $url) {
+	@font-face {
+		font-family: $name;
+		src: url("../assets/fonts/Public_Sans/" + $url);
+	}
+}
+
+@keyframes fadeBox {
+	0% {
+		// transform: translateY(-130px) rotate(-6deg);
+		transform: translate(-50%, 130px);
+		opacity: 0;
+	}
+	100% {
+		transform: translate(-50%, 0);
+		opacity: 1;
+	}
+}

@@ -1,0 +1,170 @@
+.competence {
+    // min-height: 100vh;
+    position: relative;
+    transition: transform 0.5s ease-out;
+    grid-template-rows: min-content;
+    padding: 180px 90px 150px;
+    @include gridLayout;
+    max-width: initial;
+
+    @include media("<laptop") {
+        padding-bottom: 190px;
+    }
+
+    @include media("<=tablet") {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+    @include media("<mobileXL") {
+        padding-top: 150px;
+        padding-bottom: 160px;
+    }
+
+    .titleGroup {
+        margin-bottom: 200px;
+
+        @include media("<laptop") {
+            margin-bottom: 180px;
+        }
+    }
+
+    .skillDiv {
+        margin-bottom: 30px;
+    }
+
+    .skill {
+        grid-row: 2;
+        grid-column: 4 / 12;
+
+        @include media("<desktop") {
+            grid-column: 1 / 12;
+        }
+
+        @include media("<laptopXL") {
+            grid-column: 4 / 12;
+        }
+
+        @include media("<laptopL") {
+            grid-column: 3 / 12;
+        }
+
+        @include media("<laptopM") {
+            grid-column: 2 / 12;
+        }
+
+        @include media("<laptop") {
+            grid-column: 1 / 12;
+        }
+
+        @include media("<tablet") {
+            grid-column: 1 / 23;
+        }
+
+        h2 {
+            font-size: 24px;
+            letter-spacing: 1.29px;
+            margin: 20px 0;
+
+            @include media("<laptop") {
+                font-size: 20px;
+            }
+        }
+
+        h3 {
+            margin: 5px 0;
+            color: $grey2;
+        }
+
+        .skillBar {
+            height: 5px;
+            width: 100%;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 2px;
+
+            .progress1,
+            .progress2,
+            .progress3,
+            .progress4 {
+                height: 100%;
+                border-radius: 2px 0px 0px 2px;
+
+                div {
+                    height: 100%;
+                    width: 100%;
+                    background-color: $secondary;
+                    animation-duration: 1.5s;
+                }
+            }
+
+            .progress1 {
+                width: 65%;
+            }
+
+            .progress2 {
+                width: 75%;
+            }
+
+            .progress3 {
+                width: 50%;
+            }
+
+            .progress4 {
+                width: 70%;
+            }
+        }
+    }
+
+    .skillDetails {
+        grid-row: 2;
+        grid-column: 14 / 20;
+
+        @include media("<desktop") {
+            grid-column: 14 / 23;
+        }
+
+        @include media("<tablet") {
+            grid-row: 3;
+            grid-column: 1 / 23;
+        }
+
+        h2 {
+            text-transform: uppercase;
+            font-size: 24px;
+            letter-spacing: 1.29px;
+            margin: 20px 0;
+
+            @include media("<laptop") {
+                font-size: 20px;
+            }
+        }
+
+        ul {
+            padding-left: 40px;
+
+            li {
+                margin: 10px 0;
+                font-size: 18px;
+                color: $grey2;
+                position: relative;
+
+                @include media("<laptop") {
+                    font-size: 14px;
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: 10px;
+                    height: 1px;
+                    background-color: $secondary;
+                    left: -30px;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                }
+            }
+        }
+    }
+}
