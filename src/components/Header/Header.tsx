@@ -17,7 +17,8 @@ export default function Header() {
 
     useEffect(() => {
         let headerLi = document.querySelectorAll("#header .head > ul li") as NodeListOf<Element>,
-            scrollTop = document.getElementById("scrollTop") as HTMLElement,
+            scrollToTop = document.getElementById("scrollTop") as HTMLElement,
+            sectionProjets = document.getElementById("projets") as HTMLElement,
             items = document.querySelectorAll("#root section") as NodeListOf<Element>,
             lastScroll = 0,
             observer = new IntersectionObserver(function (observables) {
@@ -30,7 +31,14 @@ export default function Header() {
                                 li.classList.remove("active");
                             }
                         });
-                    } else { /* observable.target.classList.remove("active");*/ }
+                    } else {
+                        // remove class active a l'element qui precede ou qui suis la section projets
+                        headerLi.forEach(li => {
+                            if (li.textContent === observable.target.id || (li.textContent === "à propos" && observable.target.id === "about")) {
+                                li.classList.remove("active");
+                            }
+                        });
+                    }
                 })
             }, {
                 threshold: [0.5]
@@ -46,14 +54,36 @@ export default function Header() {
         window.addEventListener("scroll", () => {
             if (window.pageYOffset > (window.innerHeight / 3)) {
                 if (lastScroll > window.pageYOffset) {
-                    scrollTop.style.transform = "translateY(0)";
+                    scrollToTop.style.transform = "translateY(0)";
                 } else {
-                    scrollTop.style.transform = "translateY(100%)";
+                    scrollToTop.style.transform = "translateY(100%)";
                 }
             } else {
-                scrollTop.style.transform = "translateY(100%)";
+                scrollToTop.style.transform = "translateY(100%)";
             }
             lastScroll = window.pageYOffset;
+
+            // la section projets est trop longue pour etre observable avec IntersectionObserver
+            // si la section projets est visible ajout manuellement de la class active 
+            const { scrollTop } = document.documentElement,
+                view: any = sectionProjets.getBoundingClientRect(),
+                scrollTopAndView = scrollTop + view.top,
+                scrollTopAndViewBottom = scrollTop + view.bottom;
+
+            if (scrollTop > (scrollTopAndView - 500)) {
+                headerLi.forEach((li) => {
+                    if (li.textContent === "projets") {
+                        li.classList.add("active");
+                    }
+                });
+            } else {
+                headerLi[1].classList.remove("active");
+            }
+
+            // si la position du bottom de la section est arriver a la view donc elle est au dessus on retire la class active de projets
+            if (scrollTop > (scrollTopAndViewBottom - 200)) {
+                headerLi[1].classList.remove("active");
+            }
         });
     }, []);
 
